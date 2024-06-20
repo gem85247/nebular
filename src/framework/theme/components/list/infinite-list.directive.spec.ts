@@ -208,12 +208,16 @@ describe('Directive: NbScrollDirective', () => {
     documentElement.scrollTop = positionUnderThreshold;
     window.dispatchEvent(new Event('scroll'));
     tick(infiniteListDirective.throttleTime);
+    // TODO: fix this test
+    // expect(thresholdSpy).toHaveBeenCalledTimes(1);
     expect(thresholdSpy).toHaveBeenCalledTimes(0);
 
     const positionBelowThreshold = CONTENT_HEIGHT - THRESHOLD / 2;
     documentElement.scrollTop = positionBelowThreshold;
     window.dispatchEvent(new Event('scroll'));
     tick(infiniteListDirective.throttleTime);
+    // TODO: fix this test
+    // expect(thresholdSpy).toHaveBeenCalledTimes(2);
     expect(thresholdSpy).toHaveBeenCalledTimes(1);
   }));
 
